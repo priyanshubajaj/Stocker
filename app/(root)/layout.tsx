@@ -10,7 +10,7 @@ const layout = async ({children} : {children : React.ReactNode}) => {
   const user = {
     id: session?.user.id,
     name: session?.user.name,
-    email: session.user.email,
+    email: session?.user.email,
   }
   return (
     <main className="min-h-screen text-gray-400">
