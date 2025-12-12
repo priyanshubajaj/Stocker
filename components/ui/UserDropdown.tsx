@@ -12,11 +12,12 @@ import {
 import { useRouter } from "next/navigation";
 import { Button } from "./button";
 import { LogOut } from "lucide-react";
+import { signOut } from "@/lib/actions/auth.actions";
 
 const UserDropdown = ({user}: {user: User}) => {
     const router = useRouter();
     const handleSignOut = async() => {
-        
+        await signOut();
         router.push("/sign-in");
     }
     
@@ -25,7 +26,7 @@ const UserDropdown = ({user}: {user: User}) => {
   <DropdownMenuTrigger asChild>
     <Button variant="ghost" className="flex items-centergap-3 text-gray-4 hover:text-yellow-500">
         <Avatar className="h-8 w-8">
-            {/*<AvatarImage src="https://github.com/shadcn.png" />*/}
+         
             <AvatarFallback className="bg-yellow-500 text-yellow-900 text-sm font-bold">
                 {user.name[0]}
             </AvatarFallback>
